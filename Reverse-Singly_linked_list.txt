@@ -1,0 +1,37 @@
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* llist) {
+    SinglyLinkedListNode *t;
+    SinglyLinkedListNode *p;
+    SinglyLinkedListNode *n;
+    if(llist==NULL || llist->next==NULL)
+       return llist;
+    p=llist;
+    llist=llist->next;
+    t=llist;
+    p->next=NULL;
+    n=llist->next;
+    while(n!=NULL)
+    {
+        t->next=p;
+        p=t;
+        t=n;
+        n=n->next;
+        
+    }
+    t->next=p;
+    return t;
+}
+
+
+
+
+# Write your code here
+    prev = ''
+    while(True):
+        #print(llist.data)
+        llist2 = SinglyLinkedListNode(llist.data)
+        llist2.next = prev
+        prev = llist2
+        llist = llist.next
+        if (llist is None):
+            break
+    return llist2
